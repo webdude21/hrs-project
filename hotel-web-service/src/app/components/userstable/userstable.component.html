@@ -1,0 +1,10 @@
+<table align="center" >
+    <tr>
+        <th *ngFor="let colName of colNames;">{{colName}}</th>
+    </tr>
+    <tr *ngFor="let row of generateArray(usersTable);">
+        <td *ngFor="let cell of generateArray(row);">{{cell}}</td>
+    </tr>
+</table>
+
+

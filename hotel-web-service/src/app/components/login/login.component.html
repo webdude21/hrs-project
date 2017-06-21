@@ -1,0 +1,73 @@
+<div class="container-fluid hrs-login">
+
+    <form class="form-horizontal hrs-loginform" role="form" method="POST" action="/login">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4">
+                <h2>Please Login</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4 form-group has-danger">
+                <input type="text" name="username" class="form-control" 
+                        id="email" 
+                        placeholder="youremail@example.com" 
+                        [(ngModel)]='username'
+                        required autofocus>
+            </div>
+            <div class="col-5">
+                <!--<span class="text-danger align-middle">
+                    <i class="fa fa-close"></i> Example error message
+                </span>-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input type="password" name="password" class="form-control" 
+                            id="password" 
+                            placeholder="Password"
+                            [(ngModel)]='password' 
+                            required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                    <!-- Put password error message here -->    
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input hrs-checkbox" type="checkbox">  <!-- name="remember" -->
+                        Remember me
+                    </label>
+                </div>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-4">
+                <button type="button" class="btn btn-primary"
+                        (click)="loginButtonClickHandler()">
+                    <i class="fa fa-sign-in"></i> Login</button>
+                <a class="btn btn-link" href="/password/reset">Forgot Your Password?</a>
+            </div>
+        </div>
+    </form>
+
+
+</div>
