@@ -11,7 +11,7 @@ export class AuthenticationService {
 
     public token: string;
 
-    constructor(private _http: Http) { 
+    constructor(private _http: Http) {
         // set token if saved in local storage
         let currentUser = JSON.parse(localStorage.getItem('access_token'));
         this.token = currentUser && currentUser.token;
@@ -20,17 +20,9 @@ export class AuthenticationService {
     login(username: string, password: string): Observable<boolean>{
         // let body = JSON.parse(`{"username": "${username}", "password": "${password}"}`);
         // let body = `{"username": "${username}", "password": "${password}"}`;
-        let body = {username, password};
-        console.log(body);
-        let headers = new Headers({
-            'Access-Control-Allow-Origin': '*',
-            'Content-type': 'application/json',
-            'Access-Control-Allow-Credentials': 'true'
-        });
-        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify({username, password});
 
-        debugger
-        return this._http.post(APICONFIG.authUrl, body, options)
+        return this._http.post(APICONFIG.authUrl, body)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let token = response.json() && response.json().token;
