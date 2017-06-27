@@ -24,8 +24,11 @@ export class AuthenticationService {
 
         return this._http.post(APICONFIG.authUrl, body)
             .map((response: Response) => {
+              console.log(response.headers.get("Authorization"));
+
                 // login successful if there's a jwt token in the response
                 let token = response.json() && response.json().token;
+
                 console.log('>>> AUTHENTICATION SERVICE.ts: ', response);
                 if (token) {
                     // set token property
